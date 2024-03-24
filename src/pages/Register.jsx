@@ -1,10 +1,15 @@
 /* eslint-disable no-unused-vars */
 import {useState, useEffect} from 'react'
 import {FaUser} from 'react-icons/fa'
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import {reset, register} from '../features/auth/authSlice'
 
+
+// Uso de la función `register` aquí
 
 const Register = () => {
-
   const [formData, setFormData] = useState({
     name:'',
     email: '',
@@ -14,6 +19,11 @@ const Register = () => {
   });
 
   const{name, email, password, password2} = formData
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
 
   //funcion onChange para actualizar 
   const onChange = (e) => {
@@ -25,6 +35,33 @@ const Register = () => {
 
   const onSubmit = (e) =>{
     e.preventDefault()
+
+    if(password!==password2){
+      toast.error('Los password no coinciden')
+    }else{
+      const userData = {
+        name, email, password 
+      }
+      dispatch(register(userData))
+    }
+
+  }
+
+  useEffect(()=>{
+    if(isError){
+      toast.error(message)
+    }
+
+    if(isSuccess){
+      navigate('/login')
+    }
+
+    dispatch(reset())
+
+  },[user,isError, isSuccess, message, navigate, dispatch])
+
+  if(isLoading){
+    return  <Spinner />
   }
 
   return (
