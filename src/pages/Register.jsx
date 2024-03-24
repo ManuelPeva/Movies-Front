@@ -23,6 +23,10 @@ const Register = () => {
     }))
   }
 
+  const onSubmit = (e) =>{
+    e.preventDefault()
+  }
+
   return (
     <>
     <section className='heading'>
@@ -30,8 +34,8 @@ const Register = () => {
       <p>Por favor crea un usuario</p>
     </section>
 
-    <section className='form'>
-      <form>
+    <section className='form' >
+      <form onSubmit={onSubmit}>
         <div className="form-group">
           <input 
           type="text"
@@ -42,6 +46,44 @@ const Register = () => {
           placeholder='por favor escriba su nombre'
           onChange={onChange}
           />
+        </div>
+        <div className="form-group">
+          <input 
+          type="email"
+          className='form-control'
+          id='email'
+          name='email'
+          value={email}
+          placeholder='por favor escriba su email'
+          onChange={onChange}
+          />
+        </div>
+        <div className="form-group">
+          <input 
+          type="password"
+          className='form-control'
+          id='pasword'
+          name='password'
+          value={password}
+          placeholder='por favor escriba tu password'
+          onChange={onChange}
+          />
+        </div>
+        <div className="form-group">
+          <input 
+          type="password"
+          className='form-control'
+          id='pasword2'
+          name='password2'
+          value={password2}
+          placeholder='por favor confirma tu password'
+          onChange={onChange}
+          />
+        </div>
+        <div className="form-group">
+          <button type='submit' className='btn btn-block'>
+            Crear cuenta
+          </button>
         </div>
       </form>
     </section>
