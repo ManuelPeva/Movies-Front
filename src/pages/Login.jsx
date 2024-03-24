@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import {FaSignInAlt, FaUser} from 'react-icons/fa'
 
 
-const login = () => {
+const Login = () => {
 
   const [formData, setFormData] = useState({
     
@@ -19,6 +19,10 @@ const login = () => {
       ...prevState,
       [e.target.name]: e.target.value
     }))
+  }
+
+  const onSubmit = (e) =>{
+    e.preventDefault()
   }
   
   return (
@@ -65,4 +69,4 @@ const login = () => {
 }
 
 
-export default login
+export default Login
