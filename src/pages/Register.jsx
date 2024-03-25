@@ -1,10 +1,10 @@
-/* eslint-disable no-unused-vars */
 import {useState, useEffect} from 'react'
 import {FaUser} from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import {reset, register} from '../features/auth/authSlice'
+
 
 
 // Uso de la función `register` aquí
@@ -53,6 +53,7 @@ const Register = () => {
     }
 
     if(isSuccess){
+      toast.success('Registro exitoso')
       navigate('/login')
     }
 
@@ -61,7 +62,7 @@ const Register = () => {
   },[user,isError, isSuccess, message, navigate, dispatch])
 
   if(isLoading){
-    return  <Spinner />
+    return
   }
 
   return (
