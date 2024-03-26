@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from "react"
 import {useNavigate} from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
+import Card from '../components/Card'
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -46,11 +47,11 @@ const Dashboard = () => {
     <div>
       <h1>Dashboard</h1>
       <h2>Popular Movies</h2>
-      <ul>
+      <div className="card-container">
         {movies.map(movie => (
-          <li key={movie.id}>{movie.title}</li>
+          <Card key={movie.id} movie={movie} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
