@@ -43,15 +43,26 @@ const Dashboard = () => {
     return <p>Error: {error}</p>;
   }
 
+  const renderMovies = () => {
+    const rows = [];
+    for (let i = 0; i < movies.length; i += 3) {
+      rows.push(
+        <div key={i} className="row">
+          {movies.slice(i, i + 3).map(movie => (
+            <div key={movie.id} className="col-md-4">
+              <Card movie={movie} />
+            </div>
+          ))}
+        </div>
+      );
+    }
+    return rows;
+  };
+
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <h2>Popular Movies</h2>
-      <div className="card-container">
-        {movies.map(movie => (
-          <Card key={movie.id} movie={movie} />
-        ))}
-      </div>
+      <div>
+      <h1>MoviPeli</h1>
+      {renderMovies()}
     </div>
   );
 };
