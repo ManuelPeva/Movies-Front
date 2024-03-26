@@ -4,9 +4,9 @@ const Spinner = () => {
   return (
     <div className="loadingSpinnerContainer">
       {/* Aquí puedes agregar el contenido del spinner, como un icono de carga */}
-      <div className="loadingSpinner"></div>
+      <div className="loader"></div>
       {/* También puedes agregar un mensaje opcional debajo del spinner */}
-      <p>Cargando...</p>
+      <p className='cargando'>Cargando...</p>
     </div>
   );
 };

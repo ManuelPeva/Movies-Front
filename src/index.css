@@ -9,11 +9,25 @@
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
+  background-color: #ffffff; /* Color de fondo */
+  background-image: url(''); /* Ruta de la imagen de fondo */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+  background-position: center; /* Centra la imagen */
 }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #ff5e00;
+  font-family: "Allerta Stencil", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: larger;
+  text-shadow: 0.5px 0px 0px #000000;
+}
+
+a:hover{
+  color:#f4f4f4;
+  text-shadow: 0.5px 0px 0px #f44336;
 }
 
 p {
@@ -48,8 +62,9 @@ h3 {
   justify-content: space-between;
   align-items: center;
   padding: 24px 0;
-  border-bottom: 1px solid #1714c8;
+  border-bottom: 1px solid #f50505;
   margin-bottom: 60px;
+  
 }
 
 .header ul {
@@ -68,7 +83,7 @@ h3 {
 }
 
 .header ul li a:hover {
-  color: #1524c9;
+  color: #f50505;
 }
 
 .header ul li a svg {
@@ -82,8 +97,10 @@ h3 {
   padding: 0 20px;
 }
 
+
+
 .heading p {
-  color: #828282;
+  color: #c92e2e;
 }
 
 .tareas {
@@ -123,10 +140,14 @@ h3 {
 .form-group select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #000000;
+  border: 1px solid #434343a7;
   border-radius: 5px;
   margin-bottom: 10px;
   font-family: inherit;
+}
+
+.form-group input:hover{
+  border: 1px solid #E88210;
 }
 
 .form-group label {
@@ -137,9 +158,9 @@ h3 {
 
 .btn {
   padding: 10px 20px;
-  border: 1px solid #000;
+  border: 1px solid #e86e10;
   border-radius: 5px;
-  background: #000;
+  background: #e87110;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -167,6 +188,7 @@ h3 {
 
 .btn:hover {
   transform: scale(0.98);
+  box-shadow: 2px 2px 4px #EA5201;
 }
 
 .loadingSpinnerContainer {
@@ -216,17 +238,37 @@ h3 {
 
 
 .card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 2px solid #ccccccd8;
+  border-radius: 5px;
+  padding: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   background-color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.card:hover{
+  transform: translateY(-20px);
+}
+
+.cargando{
+  color: white;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .card img {
   width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
 .card-body {
@@ -236,16 +278,46 @@ h3 {
 .card-title {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  font-family: "Allerta Stencil", sans-serif;
+  font-style: normal;
 }
 
 .card-text {
   color: #383838;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-align: justify;
+}
+
+@media screen and (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .button-container {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+
+}
+
+@media screen and (max-width: 480px) {
+  .button-container {
+    flex-direction: column; /* Cambia la dirección del flex a columna en dispositivos móviles */
+     /* Centra los elementos en el eje horizontal */
+  }
+
+  .button-container button {
+    margin-top: 10px; /* Añade espacio entre los botones en vista móvil */
+  }
 }
 
 .like-button, .dislike-button {
@@ -261,7 +333,109 @@ h3 {
   color: #fff;
 }
 
+.like-button:hover {
+  background-color: #18bd4c;
+  color: #ffffff;
+  box-shadow: 2px 3px 16px #18bd4c;
+  transition: all 0.2s ease;
+}
+
 .dislike-button.active {
   background-color: #f44336;
   color: #fff;
+  
+}
+
+.dislike-button:hover {
+  background-color: #f44336;
+  color: #fff;
+  box-shadow: 2px 3px 16px #f44336;
+  transition: all 0.2s ease;
+}
+
+.allerta-stencil-regular {
+  font-family: "Allerta Stencil", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1{
+  font-family: "allerta Stencil", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  color: #EA5201;
+  text-align: center;
+  
+  font-size: 48px;  
+}
+
+.dashboard{
+    background-color: #ffffff; /* Color de fondo */
+    background-image: url('ruta/a/tu/imagen.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    padding: 20px;
+  
+}
+
+.loader {
+  animation: rotate 1s infinite;
+  height: 50px;
+  width: 50px;
+}
+
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+.loader:before {
+  animation: ball1 1s infinite;
+  background-color: #fff;
+  box-shadow: 30px 0 0 #ff3d00;
+  margin-bottom: 10px;
+}
+.loader:after {
+  animation: ball2 1s infinite;
+  background-color: #ff3d00;
+  box-shadow: 30px 0 0 #fff;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) scale(0.8) }
+  50% { transform: rotate(360deg) scale(1.2) }
+  100% { transform: rotate(720deg) scale(0.8) }
+}
+
+@keyframes ball1 {
+  0% {
+    box-shadow: 30px 0 0 #ff3d00;
+  }
+  50% {
+    box-shadow: 0 0 0 #ff3d00;
+    margin-bottom: 0;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #ff3d00;
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    box-shadow: 30px 0 0 #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 #fff;
+    margin-top: -20px;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #fff;
+    margin-top: 0;
+  }
 }

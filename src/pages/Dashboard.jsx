@@ -43,26 +43,26 @@ const Dashboard = () => {
     return <p>Error: {error}</p>;
   }
 
-  const renderMovies = () => {
-    const rows = [];
-    for (let i = 0; i < movies.length; i += 3) {
-      rows.push(
-        <div key={i} className="row">
-          {movies.slice(i, i + 3).map(movie => (
-            <div key={movie.id} className="col-md-4">
-              <Card movie={movie} />
-            </div>
-          ))}
-        </div>
-      );
-    }
-    return rows;
-  };
+  //funcion para dividir el array de peliculas en grupos de tres
+  //const chunkArray = (arr, size) => {
+   // const chunkedArr = [];
+    //for (let i = 0; i < arr.length; i += size) {
+      //chunkedArr.push(arr.slice(i, i + size));
+   // }
+   // return chunkedArr;
+  //};
+
+  // Divide el array de películas en grupos de tres
+ // const moviesChunks = chunkArray(movies, 3);
 
   return (
-      <div>
+      <div className='dashboard'>
       <h1>MoviPeli</h1>
-      {renderMovies()}
+      <div className="card-container">
+        {movies.map(movie => (
+          <Card key={movie.id} movie={movie} />
+        ))}
+      </div>
     </div>
   );
 };
